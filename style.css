@@ -1,0 +1,120 @@
+/* * {
+    border: red solid 1px;
+} */
+
+
+body {
+    background-color: rgb(241, 241, 241);
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+}
+
+.calculator-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#iPhone8 {
+    /* display: block; */
+    overflow: hidden;  /*puts image to background*/
+}
+
+.calculator {
+    position: absolute;
+    background-color: whitesmoke;
+    text-align: center;
+    /* color: black; */
+    width: 256px;
+    height: 452px;
+    display: flex;
+    flex-direction: column;
+}
+
+.display {
+    /* font-size: 24px;
+    width: 95%;
+    border: 0px; */
+    background: black;
+    color: white;
+    font-size: 3em;
+    border: 0;
+    padding: 20px 20px 0px 20px;
+    text-align: right;
+    flex: 1;
+}
+
+.buttons {
+    display: grid;  
+    grid-template-columns: repeat(4,1fr);  /*define number of grid columns*/
+    grid-gap: 10px;
+    padding: 10px;
+    border: 0;
+    background-color: black;
+}
+
+.btn {
+    font-size: 1.5em;
+    height: 52px;
+    border-radius: 30px;
+    border: 0;
+    transition: all .4s ease; /*transition in sec of background color when hovering*/
+    /* background-color : transparent; */
+    /* margin: 5px; */
+}
+
+/* .btn:hover {
+    background: #fff;
+} */
+
+#ac, #plus-minus, #percent {
+    font-size: 1em;
+    background-color: silver;
+}
+
+#ac:hover, #plus-minus:hover, #percent:hover {
+    background-color: #fff;
+}
+
+.number, #decimal {
+    color: white;
+    background-color: rgb(75, 75, 75);
+}
+
+.number:hover, #decimal:hover{
+    color: black;
+    background: #fff;
+}
+
+#divide, #multiply, #plus, #minus, #operator {
+    color: white;
+    background-color: rgb(253, 143, 0);
+}
+
+#divide:hover, #multiply:hover, #plus:hover, #minus:hover, #operator:hover {
+    color: black;
+    background: #fff;
+}
+
+#zero {
+    grid-column: span 2;
+}
+
+/* .calculator {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    border: 0;
+} */
+
+.footer {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    bottom: 0; /*keeps footer at the bottom*/
+    left: 0;
+    /* height: 2.5rem; */
+}
