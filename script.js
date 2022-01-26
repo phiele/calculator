@@ -72,6 +72,7 @@ decimalBtn.addEventListener('click', () => {
         return;
     } else {
         display.value = display.value + '.';
+        ac.textContent = 'C';  // switch to C if you start with a decimal right at the start
     }
 }
 );
@@ -120,8 +121,29 @@ function operate(firstOperand, operator, secondOperand) {
     firstOperand = Number(firstOperand);
 	secondOperand = Number(secondOperand);
     if (operator === '+') return firstOperand + secondOperand;
-    if (operator === '-') return firstOperand - secondOperand;
+    if (operator === '-') return subtraction();
     if (operator === '×') return firstOperand * secondOperand;
-    if (operator === '÷') return firstOperand / secondOperand;
-    // if (operator === 'remainder' || operator === '%') return firstOperand % secondOperand; 
+    if (operator === '÷') return firstOperand / secondOperand; 
 };
+
+// avoid imprecise calculations for substraction (https://javascript.info/number#imprecise-calculations)
+function subtraction() {
+    let subtraction = firstOperand - secondOperand;
+    let subtractionString = subtraction.toString();
+    if (subtractionString.includes('.') === true) {
+        if (subtractionString.length > firstOperand.toString().length && subtractionString.length > secondOperand.toString().length) {
+            // compare number of decimals of both operands
+            let x = firstOperand.toString().split('.');
+            let y = secondOperand.toString().split('.');
+            let firstOperandDecLength = x[1].length;
+            let secondOperandDecLength = y[1].length;
+            if (firstOperandDecLength > secondOperandDecLength) {
+                return subtraction.toFixed(firstOperandDecLength);
+            } else {
+                return subtraction.toFixed(secondOperandDecLength);
+            }
+        }
+    } else {
+        return subtraction;
+    }
+}
