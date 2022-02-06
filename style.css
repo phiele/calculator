@@ -59,7 +59,7 @@ body {
 .btn {
     font-size: 1.5em;
     height: 52px;
-    border-radius: 30px;
+    border-radius: 50%;
     border: 0;
     transition: all .4s ease; /*transition in sec of background color when hovering*/
     /* background-color : transparent; */
